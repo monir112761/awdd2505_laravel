@@ -19,12 +19,21 @@
                     <div class="dropdown">
                       <button class="btn dropdown-toggle top_right_btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                           <img src="{{asset('contents/admin')}}/images/avatar.png" class="img-fluid">
-                          Rasel Islam
+                          <!-- User Name Come From Database -->
+                          @foreach ($name as $name)
+                                <p>{{ $name->name }} - {{ $email->email }}</p>
+                           @endforeach
+                          <!-- user-name -->
+                          <!-- Rasel Islam -->
                       </button>
                       <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#"><i class="fas fa-user-tie"></i> My Profile</a></li>
                         <li><a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Manage Account</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                       </ul>
                     </div>
                 </div>
@@ -47,7 +56,7 @@
                             <li><a href="#"><i class="fas fa-images"></i> Banner</a></li>
                             <li><a href="#"><i class="fas fa-comments"></i> Contact Message</a></li>
                             <li><a href="#"><i class="fas fa-globe"></i> Live Site</a></li>
-                            <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                         </ul>
                     </div>
                 </div>
