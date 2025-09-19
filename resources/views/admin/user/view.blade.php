@@ -50,7 +50,7 @@
                                             <td>Photo</td>  
                                             <td>:</td>  
                                             <td>
-                                                <img class="img200" src="images/avatar.jpg" alt=""/>  
+                                                <img class="img200" src="{{ asset('contents/admin/') }}images/avatar.jpg" alt="images "/>  
                                             </td>  
                                           </tr>
                                         </table>
