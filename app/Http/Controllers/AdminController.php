@@ -13,12 +13,10 @@ class AdminController extends Controller
     }
 
     // Route to show a hello world for the authenticated user
-    public function hello()
-    {
-        $user = auth()->user();
-        $name = $user ? $user->name : 'Guest';
+    public function index()
+    { 
+       return view('admin.dashboard.home');
+      // echo ?Admin Page?; --- IGNORE ---
 
-        return response("Hello World, {$name}!", 200)
-            ->header('Content-Type', 'text/plain');
-    }
+}
 }

@@ -19,16 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-Route::get('/admin', [AdminController::class, 'index']);
+// Admin panel Routes
+Route::get('/dashboard', [AdminController::class, 'index']);
+Route::get('/dashboard/all', [UserController::class, 'index']);
+Route::get('/dashboard/all/add', [UserController::class, 'add']);
+Route::get('/dashboard/all/edit', [UserController::class, 'edit']);
+Route::get('/dashboard/all/view', [UserController::class, 'view']);
+
+
+// User panel Routes
 Route::get('/user', [UserController::class, 'index']);
 
 require __DIR__.'/auth.php';

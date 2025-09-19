@@ -9,15 +9,27 @@ class UserController extends Controller
       // ...existing code...
     public function __construct()
     {
-        $this->middleware('auth')->only('name');
+        $this->middleware('auth');
     }
 
-    
-    // public function name(Request $request)
-    // {
-    //     return response()->json([
-    //         'name' => optional($request->user())->name,
-    //     ]);
-    // }
-    // ...existing code...
+    public function index()
+    {
+        // return view('user.dashboard.home');
+        return view('admin.user.all');
+    }
+
+    public function add()
+    {
+        return view('admin.user.add');
+    }
+
+    public function edit()
+    {
+        return view('admin.user.edit');
+    }
+
+    public function view()
+    {
+        return view('admin.user.view');
+    }
 }
